@@ -11,23 +11,21 @@ weatherForm.addEventListener("submit", (e) => {
     const location = search.value;
     messageOne.textContent = "loading...";
     messageTwo.textContent = "";
-    fetch(`http://localhost:3000/weather?address=${location}`).then(
-        (response) => {
-            response.json().then((data) => {
-                if (data.error) {
-                    messageOne.textContent = data.error;
-                    console.log(data.error);
-                } else {
-                    messageOne.textContent = "location: " + data.location;
-                    console.log(data.location);
-                    console.log(data.weather_description);
-                    messageTwo.textContent =
-                        "The current temperature is: " +
-                        data.current_temperature +
-                        " degrees celsius";
-                    console.log(data.current_temperature);
-                }
-            });
-        }
-    );
+    fetch(`/weather?address=${location}`).then((response) => {
+        response.json().then((data) => {
+            if (data.error) {
+                messageOne.textContent = data.error;
+                console.log(data.error);
+            } else {
+                messageOne.textContent = "location: " + data.location;
+                console.log(data.location);
+                console.log(data.weather_description);
+                messageTwo.textContent =
+                    "The current temperature is: " +
+                    data.current_temperature +
+                    " degrees celsius";
+                console.log(data.current_temperature);
+            }
+        });
+    });
 });
