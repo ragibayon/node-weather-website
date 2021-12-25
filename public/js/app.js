@@ -4,8 +4,8 @@ const messageOne = document.querySelector("#message-1");
 const messageTwo = document.querySelector("#message-2");
 
 weatherForm.addEventListener("submit", (e) => {
+    // prevent page reloading by from-submitting
     e.preventDefault();
-
     const location = search.value;
     messageOne.textContent = "loading...";
     messageTwo.textContent = "";
@@ -14,12 +14,9 @@ weatherForm.addEventListener("submit", (e) => {
             if (data.error) {
                 messageOne.textContent = data.error;
             } else {
+                console.log(data);
                 messageOne.textContent = "Location: " + data.location;
-                messageTwo.textContent = `It seems ${data.weather_description[0].toLowerCase()} throughout the day! The current temperature is ${
-                    data.current_temperature
-                } degree celsius, but is feels like ${
-                    data.feels_like
-                } degree celsius.`;
+                messageTwo.textContent = `It seems ${data.currentWeatherDescriptions[0]} throughout the day! The current temperature is ${data.currentTemperature} \xB0C and the humidity is ${data.currentHumidity}%, but it feels like ${data.currentFeelsLike} \xB0C. The latest observation was made at ${data.latestObservationTime} UTC.`;
             }
         });
     });

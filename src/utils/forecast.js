@@ -23,6 +23,8 @@ const forecast = (latitude, longitude, callback) => {
                 currentTemperature: body.current.temperature,
                 currentFeelsLike: body.current.feelslike,
                 currentWeatherDescriptions: body.current.weather_descriptions,
+                currentHumidity: body.current.humidity,
+                latestObservationTime: body.current.observation_time,
             });
         }
     });

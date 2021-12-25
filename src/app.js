@@ -66,10 +66,12 @@ app.get("/weather", (req, res) => {
 
                 res.send({
                     location: location,
-                    weather_description:
+                    currentWeatherDescriptions:
                         forecastData.currentWeatherDescriptions,
-                    current_temperature: forecastData.currentTemperature,
-                    feels_like: forecastData.currentFeelsLike,
+                    currentTemperature: forecastData.currentTemperature,
+                    currentFeelsLike: forecastData.currentFeelsLike,
+                    currentHumidity: forecastData.currentHumidity,
+                    latestObservationTime: forecastData.latestObservationTime,
                 });
             });
         }
