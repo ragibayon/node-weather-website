@@ -53,3 +53,7 @@ button {
     background-color: #88888888;
     padding: 8px;
 }
+
+a {
+    text-decoration: none;
+}

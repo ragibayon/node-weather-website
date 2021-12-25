@@ -1,5 +1,3 @@
-console.log("client side javascript is loaded");
-
 const weatherForm = document.querySelector("form");
 const search = document.querySelector("input");
 const messageOne = document.querySelector("#message-1");
@@ -15,16 +13,13 @@ weatherForm.addEventListener("submit", (e) => {
         response.json().then((data) => {
             if (data.error) {
                 messageOne.textContent = data.error;
-                console.log(data.error);
             } else {
-                messageOne.textContent = "location: " + data.location;
-                console.log(data.location);
-                console.log(data.weather_description);
-                messageTwo.textContent =
-                    "The current temperature is: " +
-                    data.current_temperature +
-                    " degrees celsius";
-                console.log(data.current_temperature);
+                messageOne.textContent = "Location: " + data.location;
+                messageTwo.textContent = `It seems ${data.weather_description[0].toLowerCase()} throughout the day! The current temperature is ${
+                    data.current_temperature
+                } degree celsius, but is feels like ${
+                    data.feels_like
+                } degree celsius.`;
             }
         });
     });

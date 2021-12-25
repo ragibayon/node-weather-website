@@ -38,7 +38,6 @@ app.get("/help", (req, res) => {
     res.render("help", {
         title: "Help me!",
         name: "Ragib Shahariar Ayon",
-        helpText: "May Allah bless us all.",
     });
 });
 

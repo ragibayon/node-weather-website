@@ -12,7 +12,6 @@ const geocode = (address, callback) => {
         `&limit=1`;
 
     request({ uri: url, json: true }, (error, { body } = {}) => {
-        console.log(body.message);
         if (error) {
             callback("unable to connect to internet", undefined);
         } else if (body.features.length === 0) {
